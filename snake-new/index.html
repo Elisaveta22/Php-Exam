@@ -1,0 +1,120 @@
+<html>
+<head>
+	<title>Snakes of PI</title>
+	<meta charset="UTF-8">
+	<link href="public/css/bootstrap.css" rel="stylesheet" />
+	<link href="public/css/app.css" rel="stylesheet" />
+	<script src="public/js/jquery.min.js"></script>
+	<script src="public/js/bootstrap.min.js"></script>
+
+	<script src="public/js/server.js"></script>
+	<script src="public/js/game.js"></script>
+	<script src="public/js/user.js"></script>
+	<script src="public/js/ui.js"></script>
+	<script src="public/js/graph.js"></script>
+	<script src="public/js/main.js"></script>
+</head>
+
+<body>
+
+<nav class="navbar navbar-fixed-top navbar-dark bg-inverse" id="nav_bar">
+	<a class="navbar-brand" href="#">Snake of PI</a>
+	<ul class="nav navbar-nav">
+		<li id="profile_page_nav" class="nav-item active">
+			<a class="nav-link"  style="cursor: pointer;" onClick="switchPage('ProfilePage')">Главная <span class="sr-only">(current)</span></a>
+		</li>
+		<li id="leader_board_page_nav" class="nav-item">
+			<a class="nav-link" style="cursor: pointer;" onClick="switchPage('LeaderBoardPage')">Турнирная таблица</a>
+		</li>
+	</ul>
+</nav>
+	<div id="game_wrapper">
+		<section class="gamePage hidden page">
+			<canvas class="game_canvas" id="game">Javascript не поддерживается</canvas>
+		</section>
+
+		<section class="profilePage hidden page">
+			<button class="btn btn-blue startGameBtn">Начать игру</button>
+			<button class="btn btn-blue logoutBtn">Выход</button>
+		</section>
+		<section class="mapsPage hidden page">
+			<h1>Выберите карту</h1>
+			<div class="mapsBlock">
+				Карт не найдено
+			</div>
+
+		</section>
+
+		<section class="loginPage hidden page">
+			<div class="container">
+				<form class="form-signin" id="loginForm">
+					<label class="sr-only">login</label>
+					<input type="text" name="login" class="form-control" placeholder="Логин" required autofocus>
+					<label class="sr-only">password</label>
+					<input type="password" name="password" class="form-control" placeholder="Пароль" required>
+					<button class="btn btn-lg btn-primary btn-block" type="submit">Войти</button>
+				</form>
+
+				<a href="#" class="registerLink btn btn-lg btn-outline btn-block">Регистрация</a>
+			</div>
+		</section>
+
+		<section class="registerPage hidden page">
+			<div class="container">
+				<a href="#" class="loginLink btn btn-lg btn-outline btn-block">Авторизация</a>
+				<form class="form-signin" id="registerForm">
+					<h2 class="form-signin-heading">Создайте свой аккаунт</h2>
+					<label class="sr-only">name</label>
+					<input type="text" name="name" class="form-control" placeholder="Имя" required autofocus>
+					<label class="sr-only">login</label>
+					<input type="text" name="login" class="form-control" placeholder="Логин" required autofocus>
+					<label class="sr-only">password</label>
+					<input type="password" name="password" class="form-control" placeholder="Пароль" required>
+					<button class="btn btn-lg btn-primary btn-block" type="submit">Регистрация</button>
+				</form>
+			</div>
+		</section>
+
+		<section class="scorePage hidden page">
+			<div class="table-responsive">
+				<h1>Турнирная таблица</h1>
+				<table class="table table-striped table-sm">
+					<thead>
+					<tr>
+						<th>Name</th>
+						<td>Score</td>
+					</tr>
+					</thead>
+					<tbody id="leaderboard_type">
+					<tr>
+						<td>Петя</td>
+						<td>0.0</td>
+					</tr>
+					<tr>
+						<td>Вася</td>
+						<td>0.0</td>
+					</tr>
+					</tbody>
+				</table>
+			</div>
+		</section>
+
+
+	</div>
+
+
+<div class="modal fade" id="modalFinishGame" tabindex="-1" role="dialog">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" id="closeFinishGame" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				<h4 class="modal-title">Игра закончена</h4>
+			</div>
+			<div class="modal-body">
+				<p>Набрано очков: <span class="user_score">0</span></p>
+			</div>
+		</div><!-- /.модал-контент -->
+	</div><!-- /.модальное окно -->
+</div><!-- /.модальные -->
+</body>
+</html>
